@@ -1,0 +1,26 @@
+{
+  "name": "rocket-mart-server-app",
+  "version": "1.0.0",
+  "description": "Node.js HTTP web server for rocket mart",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vitzlo/rocket-mart-server-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vitzlo/rocket-mart-server-app/issues"
+  },
+  "homepage": "https://github.com/vitzlo/rocket-mart-server-app#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "mongoose": "^8.0.2"
+  }
+}
