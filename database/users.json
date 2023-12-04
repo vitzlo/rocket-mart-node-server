@@ -1,0 +1,68 @@
+[
+  {
+    "_id": {
+      "$oid": "656df74b113db7c889459d0c"
+    },
+    "type": "BUYER",
+    "username": "buyer",
+    "password": "test",
+    "pfp": "",
+    "signUpDate": "2022-01-01T00:00:00Z",
+    "email": "buyer@test.com",
+    "region": "KALOS",
+    "recentlyViewed": [
+      1,
+      5,
+      10,
+      23,
+      130,
+      13
+    ],
+    "pokemonBought": [
+      "656df787113db7c889459d10"
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "656df74b113db7c889459d0d"
+    },
+    "type": "SELLER",
+    "username": "seller",
+    "password": "test",
+    "pfp": "",
+    "signUpDate": "2022-01-01T00:00:00Z",
+    "email": "seller@test.com",
+    "region": "UNOVA",
+    "recentlyViewed": [
+      1
+    ],
+    "pokemonBought": [],
+    "pokemonListed": [
+      "656df787113db7c889459d10",
+      "656df787113db7c889459d11"
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "656df74b113db7c889459d0e"
+    },
+    "type": "SELLER",
+    "username": "grader",
+    "password": "smashplayer",
+    "pfp": "https://media.discordapp.net/attachments/892903537263116349/1167966808133869598/IMG_3044.jpg?ex=657e315a&is=656bbc5a&hm=9dd1aba1f8548f73403417dacf28db3a4f09828100878c8e9cb0d70398307dec&=&format=webp&width=442&height=590",
+    "signUpDate": "2022-01-01T00:00:00Z",
+    "email": "",
+    "region": "UNOVA",
+    "recentlyViewed": [
+      1,
+      2,
+      14,
+      98,
+      23,
+      754,
+      12
+    ],
+    "pokemonBought": [],
+    "pokemonListed": []
+  }
+]
