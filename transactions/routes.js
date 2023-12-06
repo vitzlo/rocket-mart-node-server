@@ -39,6 +39,15 @@ function TransactionRoutes(app) {
     const status = await dao.updateTransaction(req.params.id, req.body);
     res.json(status);
   };
+
+  app.post("/api/transactions", createTransaction);
+  app.get("/api/transactions", findAllTransactions);
+  app.get("/api/transactions/:id", findTransactionById);
+  app.get("/api/transactions/seller/:sellerId", findTransactionsBySellerId);
+  app.get("/api/transactions/buyer/:buyerId", findTransactionsByBuyerId);
+  app.get("/api/transactions/pokemon/:pokemonId", findTransactionByPokemonId);
+  app.put("/api/transactions/:id", updateTransaction);
+  app.delete("/api/transactions/:id", deleteTransaction);
 }
 
 export default TransactionRoutes;
