@@ -7,13 +7,11 @@
     "buyerId": "656df74b113db7c889459d0c",
     "timeOfListing": "2020-11-01T00:00:00.000Z",
     "timeOfPurchase": "2020-11-03T00:00:00.000Z",
-    "pokemon": {
-      "id": "1",
-      "price": 120,
-      "height": 7,
-      "weight": 14,
-      "iv": 21
-    }
+    "pokemonId": 1,
+    "price": 120,
+    "height": 7,
+    "weight": 14,
+    "iv": 21
   },
   {
     "_id": {
@@ -23,12 +21,10 @@
     "buyerId": null,
     "timeOfListing": "2020-11-01T00:00:00.000Z",
     "timeOfPurchase": null,
-    "pokemon": {
-      "id": "1",
-      "price": 100,
-      "height": 5,
-      "weight": 10,
-      "iv": 15
-    }
+    "pokemonId": 1,
+    "price": 100,
+    "height": 5,
+    "weight": 10,
+    "iv": 15
   }
 ]
