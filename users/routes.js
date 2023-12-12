@@ -62,10 +62,7 @@ function UserRoutes(app) {
         ...req.session["currentUser"],
         recentlyViewed: updatedViewed,
       };
-      await dao.updateUser(
-        req.session["currentUser"]._id,
-        newUser
-      );
+      await dao.updateUser(req.session["currentUser"]._id, newUser);
       req.session["currentUser"] = newUser;
       res.json(newUser);
     } else {
