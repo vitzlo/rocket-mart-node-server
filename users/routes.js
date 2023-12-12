@@ -1,10 +1,6 @@
 import * as dao from "./dao.js";
 
 function UserRoutes(app) {
-  const createUser = async (req, res) => {
-    const user = await dao.createUser(req.body);
-    res.json(user);
-  };
   const deleteUser = async (req, res) => {
     const status = await dao.deleteUser(req.params.userId);
     res.json(status);
@@ -51,9 +47,33 @@ function UserRoutes(app) {
   const account = async (req, res) => {
     res.json(req.session["currentUser"]);
   };
+  const addToRecentlyViewed = async (req, res) => {
+    if (req.session["currentUser"]) {
+      const { pokemonId } = req.params;
+      const recentlyViewed = req.session["currentUser"].recentlyViewed;
+      // add the new pokemon and removes any duplicates
+      const updatedViewed = recentlyViewed.filter((pok) => pok !== pokemonId);
+      updatedViewed.push(pokemonId);
+      // make sure it only tracks up to 10
+      if (updatedViewed.length > 10) {
+        updatedViewed.shift();
+      }
+      const newUser = {
+        ...req.session["currentUser"],
+        recentlyViewed: updatedViewed,
+      };
+      await dao.updateUser(
+        req.session["currentUser"]._id,
+        newUser
+      );
+      req.session["currentUser"] = newUser;
+      res.json(newUser);
+    } else {
+      res.json(undefined);
+    }
+  };
 
   // TODO: update these to fit us
-  app.post("/api/users", createUser);
   app.get("/api/users", findAllUsers);
   app.get("/api/users/:userId", findUserById);
   app.put("/api/users/:userId", updateUser);
@@ -62,6 +82,7 @@ function UserRoutes(app) {
   app.post("/api/users/signin", signin);
   app.post("/api/users/signout", signout);
   app.post("/api/users/account", account);
+  app.put("/api/users/recentlyViewed/:pokemonId", addToRecentlyViewed);
 }
 
 export default UserRoutes;
