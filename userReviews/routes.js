@@ -6,7 +6,6 @@ function UserReviewRoutes(app) {
     res.json(review);
   };
   const createUserReview = async (req, res) => {
-    console.log(req.body);
     if (req.session["currentUser"]) {
       const review = await dao.findReviewByPair(
         req.session["currentUser"].username,
@@ -19,7 +18,6 @@ function UserReviewRoutes(app) {
           reviewer: req.session["currentUser"].username,
           time: new Date().toJSON(),
         });
-        console.log(userReview);
         res.json(userReview);
       } else {
         res.status(400).send("Review already exists between user and subject");
