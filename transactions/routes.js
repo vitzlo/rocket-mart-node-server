@@ -2,7 +2,10 @@ import * as dao from "./dao.js";
 
 function TransactionRoutes(app) {
   const createTransaction = async (req, res) => {
-    if (req.session["currentUser"]) {
+    if (
+      req.session["currentUser"] &&
+      req.session["currentUser"].type === "SELLER"
+    ) {
       const transaction = await dao.createTransaction({
         ...req.body,
         sellerId: req.session["currentUser"]._id,
@@ -10,7 +13,7 @@ function TransactionRoutes(app) {
       });
       res.json(transaction);
     } else {
-      res.json(undefined);
+      res.status(401).send("Unauthorized, not logged in or not a seller");
     }
   };
   const deleteTransaction = async (req, res) => {
@@ -59,7 +62,7 @@ function TransactionRoutes(app) {
 
       res.json(transaction);
     } else {
-      res.json(undefined);
+      res.status(401).send("Unauthorized, not logged in");
     }
   };
 
