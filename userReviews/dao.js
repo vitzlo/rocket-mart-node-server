@@ -4,7 +4,7 @@ export const createUserReview = (userReview) => model.create(userReview);
 export const findReviewsByReviewer = (reviewer) =>
   model.find({ reviewer: reviewer });
 export const findReviewBySubject = (subject) =>
-  model.findOne({ subject: subject });
+  model.find({ subject: subject });
 export const findReviewByPair = (reviewer, subject) =>
   model.findOne({ reviewer: reviewer, subject: subject });
 export const findReviewById = (id) => model.findById(id);

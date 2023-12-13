@@ -43,11 +43,11 @@ function UserReviewRoutes(app) {
     res.json(status);
   };
 
-  app.get("/api/reviews/:id", findReviewById);
-  app.post("/api/reviews", createUserReview);
-  app.get("/api/reviews/reviewer/:reviewer", findReviewsByReviewer);
-  app.get("/api/reviews/subject/:subject", findReviewBySubject);
-  app.delete("/api/reviews/:id", deleteReview);
+  app.get("/api/userReviews/:id", findReviewById);
+  app.post("/api/userReviews", createUserReview);
+  app.get("/api/userReviews/reviewer/:reviewer", findReviewsByReviewer);
+  app.get("/api/userReviews/subject/:subject", findReviewBySubject);
+  app.delete("/api/userReviews/:id", deleteReview);
 }
 
 export default UserReviewRoutes;
