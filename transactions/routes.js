@@ -8,7 +8,7 @@ function TransactionRoutes(app) {
     ) {
       const transaction = await dao.createTransaction({
         ...req.body,
-        sellerId: req.session["currentUser"]._id,
+        seller: req.session["currentUser"].username,
         timeOfListing: new Date().toJSON(),
       });
       res.json(transaction);
@@ -28,15 +28,15 @@ function TransactionRoutes(app) {
     const transaction = await dao.findTransactionById(req.params.id);
     res.json(transaction);
   };
-  const findTransactionsBySellerId = async (req, res) => {
-    const transactions = await dao.findTransactionsBySellerId(
-      req.params.sellerId
+  const findTransactionsBySellerName = async (req, res) => {
+    const transactions = await dao.findTransactionsBySellerName(
+      req.params.seller
     );
     res.json(transactions);
   };
-  const findTransactionsByBuyerId = async (req, res) => {
-    const transactions = await dao.findTransactionsByBuyerId(
-      req.params.buyerId
+  const findTransactionsByBuyerName = async (req, res) => {
+    const transactions = await dao.findTransactionsByBuyerName(
+      req.params.buyer
     );
     res.json(transactions);
   };
@@ -53,7 +53,7 @@ function TransactionRoutes(app) {
   const purchaseTransaction = async (req, res) => {
     if (req.session["currentUser"]) {
       await dao.updateTransaction(req.params.transactionId, {
-        buyerId: req.session["currentUser"]._id,
+        buyer: req.session["currentUser"].username,
         timeOfPurchase: new Date().toJSON(),
       });
       const transaction = await dao.findTransactionById(
@@ -69,8 +69,8 @@ function TransactionRoutes(app) {
   app.post("/api/transactions", createTransaction);
   app.get("/api/transactions", findAllTransactions);
   app.get("/api/transactions/:id", findTransactionById);
-  app.get("/api/transactions/seller/:sellerId", findTransactionsBySellerId);
-  app.get("/api/transactions/buyer/:buyerId", findTransactionsByBuyerId);
+  app.get("/api/transactions/seller/:seller", findTransactionsBySellerName);
+  app.get("/api/transactions/buyer/:buyer", findTransactionsByBuyerName);
   app.get("/api/transactions/pokemon/:pokemonId", findTransactionByPokemonId);
   app.put("/api/transactions/:id", updateTransaction);
   app.delete("/api/transactions/:id", deleteTransaction);
