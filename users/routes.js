@@ -26,6 +26,7 @@ function UserRoutes(app) {
     const user = await dao.findUserByUsername(req.body.username);
     if (user) {
       res.status(400).json({ message: "Username already taken" });
+      return;
     }
     try {
       const currentUser = await dao.createUser({
@@ -35,7 +36,7 @@ function UserRoutes(app) {
       req.session["currentUser"] = currentUser;
       res.json(currentUser);
     } catch {
-      res.status(400).send("Error");
+      res.status(400).json({message: "Error"});
     }
   };
   const signin = async (req, res) => {
