@@ -17,8 +17,12 @@ function TransactionRoutes(app) {
     }
   };
   const deleteTransaction = async (req, res) => {
-    const status = await dao.deleteTransaction(req.params.id);
-    res.json(status);
+    if (req.session["currentUser"]) {
+      const status = await dao.deleteTransaction(req.params.id);
+      res.json(status);
+    } else {
+      res.status(401).send("Unauthorized, not logged in");
+    }
   };
   const findAllTransactions = async (req, res) => {
     const transactions = await dao.findAllTransactions();
@@ -47,8 +51,15 @@ function TransactionRoutes(app) {
     res.json(transaction);
   };
   const updateTransaction = async (req, res) => {
-    const status = await dao.updateTransaction(req.params.id, req.body);
-    res.json(status);
+    if (
+      req.session["currentUser"] &&
+      req.session["currentUser"].username === req.body.seller
+    ) {
+      const status = await dao.updateTransaction(req.params.id, req.body);
+      res.json(status);
+    } else {
+      res.status(401).send("Unauthorized, not logged in");
+    }
   };
   const purchaseTransaction = async (req, res) => {
     if (req.session["currentUser"]) {
