@@ -8,7 +8,7 @@ function TransactionRoutes(app) {
     ) {
       const transaction = await dao.createTransaction({
         ...req.body,
-        sellerId: req.session["currentUser"]._id,
+        seller: req.session["currentUser"].username,
         timeOfListing: new Date().toJSON(),
       });
       res.json(transaction);
@@ -53,7 +53,7 @@ function TransactionRoutes(app) {
   const purchaseTransaction = async (req, res) => {
     if (req.session["currentUser"]) {
       await dao.updateTransaction(req.params.transactionId, {
-        buyerId: req.session["currentUser"]._id,
+        buyer: req.session["currentUser"].username,
         timeOfPurchase: new Date().toJSON(),
       });
       const transaction = await dao.findTransactionById(
