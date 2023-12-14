@@ -5,6 +5,7 @@ import cors from "cors";
 import mongoose from "mongoose";
 import UserRoutes from "./users/routes.js";
 import TransactionRoutes from "./transactions/routes.js";
+import UserReviewRoutes from "./userReviews/routes.js";
 
 // temp here to store this value before deciding where to put it
 export const POKEMON_TYPES = [
@@ -54,5 +55,6 @@ app.use(session(sessionOptions));
 app.use(express.json());
 UserRoutes(app);
 TransactionRoutes(app);
+UserReviewRoutes(app);
 
 app.listen(process.env.PORT || 4000);

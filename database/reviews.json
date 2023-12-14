@@ -1,0 +1,30 @@
+[
+  {
+    "reviewer": "buyer",
+    "subject": "seller",
+    "time": "2018-01-01T00:00:00Z",
+    "stars": 5,
+    "review": "great seller, pokemon is winning me all the battles!"
+  },
+  {
+    "reviewer": "seller",
+    "subject": "buyer",
+    "time": "2020-11-01T00:00:00Z",
+    "stars": 5,
+    "review": "great buyer, paid quickly!"
+  },
+  {
+    "reviewer": "buyer",
+    "subject": "grader",
+    "time": "2023-01-10T00:00:00Z",
+    "stars": 4,
+    "review": "honchkrow?"
+  },
+  {
+    "reviewer": "grader",
+    "subject": "buyer",
+    "time": "2023-01-11T00:00:00Z",
+    "stars": 1,
+    "review": "honchkrow! >:("
+  }
+]

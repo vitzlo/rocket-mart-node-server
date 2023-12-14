@@ -71,7 +71,7 @@ function UserRoutes(app) {
       req.session["currentUser"] = newUser;
       res.json(newUser);
     } else {
-      res.json(undefined);
+      res.status(401).send("Unauthorized, not logged in");
     }
   };
 
