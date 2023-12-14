@@ -3,8 +3,8 @@
     "_id": {
       "$oid": "656df787113db7c889459d10"
     },
-    "sellerId": "656df74b113db7c889459d0d",
-    "buyerId": "656df74b113db7c889459d0c",
+    "seller": "seller",
+    "buyer": "buyer",
     "timeOfListing": "2020-11-01T00:00:00.000Z",
     "timeOfPurchase": "2020-11-03T00:00:00.000Z",
     "pokemonId": 1,
@@ -17,8 +17,8 @@
     "_id": {
       "$oid": "656df787113db7c889459d11"
     },
-    "sellerId": "656df74b113db7c889459d0d",
-    "buyerId": null,
+    "seller": "seller",
+    "buyer": null,
     "timeOfListing": "2020-11-01T00:00:00.000Z",
     "timeOfPurchase": null,
     "pokemonId": 1,

@@ -2,11 +2,11 @@ import mongoose from "mongoose";
 
 const transactionSchema = new mongoose.Schema(
   {
-    sellerId: {
+    seller: {
       type: String,
       required: true,
     },
-    buyerId: {
+    buyer: {
       type: String,
     },
     timeOfListing: {
